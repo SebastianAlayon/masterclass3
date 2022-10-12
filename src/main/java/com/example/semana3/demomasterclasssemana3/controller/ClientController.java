@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Client")
-public class clientController {
+public class ClientController {
 
     @Autowired
     private ClientService clientService;
