@@ -1,0 +1,8 @@
+package com.example.semana3.demomasterclasssemana3.repository.crudRepository;
+
+import com.example.semana3.demomasterclasssemana3.entities.Category;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CategoryCrudRepository extends CrudRepository<Category,Integer> {
+
+}
