@@ -1,6 +1,7 @@
 package com.example.semana3.demomasterclasssemana3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Reservation")
+@JsonPropertyOrder({"idReservation", "startDate","devolutionDate","tool","client","score"})
 public class Reservation implements Serializable {
 
     @Id
@@ -27,8 +29,10 @@ public class Reservation implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"reservations", "messages"})
     private Client client;
+
+    private Integer score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -76,5 +80,13 @@ public class Reservation implements Serializable {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

@@ -1,23 +1,25 @@
 package com.example.semana3.demomasterclasssemana3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "Message")
+@JsonPropertyOrder({"idMessage","messageText","tool","client"})
 public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
 
-    private String textMessage;
+    private String messageText;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
 
     public Integer getIdMessage() {
@@ -28,12 +30,12 @@ public class Message implements Serializable {
         this.idMessage = idMessage;
     }
 
-    public String getTextMessage() {
-        return textMessage;
+    public String getMessageText() {
+        return messageText;
     }
 
-    public void setTextMessage(String textMessage) {
-        this.textMessage = textMessage;
+    public void setMessageText(String textMessage) {
+        this.messageText = textMessage;
     }
 
     public Client getClient() {
@@ -54,7 +56,7 @@ public class Message implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "toolId")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"messages", "resrevations"})
     private Tool tool;
 
 }

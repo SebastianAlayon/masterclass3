@@ -54,6 +54,9 @@ public class ReservationService {
                 if (r.getClient()!=null){
                     q.get().setClient(r.getClient());
                 }
+                if (r.getScore()!=null){
+                    q.get().setScore(r.getScore());
+                }
                 reservationRepository.save(q.get());
                 return q.get();
             }else {

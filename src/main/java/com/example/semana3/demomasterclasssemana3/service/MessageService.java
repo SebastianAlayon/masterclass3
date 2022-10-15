@@ -39,8 +39,8 @@ public class MessageService {
         if (m.getIdMessage()!=null){
             Optional<Message> q = messageRepository.getMessage(m.getIdMessage());
             if (q.isPresent()){
-                if (m.getTextMessage()!=null){
-                    q.get().setTextMessage(m.getTextMessage());
+                if (m.getMessageText()!=null){
+                    q.get().setMessageText(m.getMessageText());
                 }
                 if (m.getClient()!=null){
                     q.get().setClient(m.getClient());

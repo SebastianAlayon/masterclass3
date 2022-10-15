@@ -1,6 +1,7 @@
 package com.example.semana3.demomasterclasssemana3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="Category")
+@JsonPropertyOrder({"id","name","description","tools"})
 public class Category implements Serializable {
 
     @Id
