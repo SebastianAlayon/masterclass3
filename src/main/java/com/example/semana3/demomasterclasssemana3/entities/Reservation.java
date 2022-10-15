@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Reservation")
-@JsonPropertyOrder({"idReservation", "startDate","devolutionDate","tool","client","score"})
+@JsonPropertyOrder({"idReservation", "startDate","devolutionDate","status","tool","client","score"})
 public class Reservation implements Serializable {
 
     @Id
