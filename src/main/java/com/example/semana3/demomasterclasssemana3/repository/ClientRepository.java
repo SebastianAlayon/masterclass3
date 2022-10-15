@@ -14,7 +14,7 @@ public class ClientRepository {
     @Autowired
     private ClientCrudRepository clientCrudRepository;
 
-    // Listar clients
+    // Listar  todos los clients
     public List<Client> getAll() {
         return (List<Client>) clientCrudRepository.findAll();
     }
