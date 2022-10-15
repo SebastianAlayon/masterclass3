@@ -46,8 +46,8 @@ public class ReservationService {
                 if (r.getDevolutionDate()!=null){
                     q.get().setDevolutionDate(r.getDevolutionDate());
                 }
-                if (r.getStatus().isEmpty()){
-                    q.get().setStatus("created");
+                if (r.getStatus()!=null){
+                    q.get().setStatus(r.getStatus());
                 }
                 if (r.getTool()!=null){
                     q.get().setTool(r.getTool());
