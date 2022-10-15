@@ -2,6 +2,7 @@ package com.example.semana3.demomasterclasssemana3.service;
 
 import com.example.semana3.demomasterclasssemana3.entities.Reservation;
 import com.example.semana3.demomasterclasssemana3.repository.ReservationRepository;
+import com.fasterxml.jackson.databind.JsonSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +46,7 @@ public class ReservationService {
                 if (r.getDevolutionDate()!=null){
                     q.get().setDevolutionDate(r.getDevolutionDate());
                 }
-                if (r.getStatus()==null){
+                if (r.getStatus().isEmpty()){
                     q.get().setStatus("created");
                 }
                 if (r.getTool()!=null){
