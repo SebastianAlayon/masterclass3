@@ -1,5 +1,6 @@
 package com.example.semana3.demomasterclasssemana3.controller;
 
+import com.example.semana3.demomasterclasssemana3.entities.Category;
 import com.example.semana3.demomasterclasssemana3.entities.Tool;
 import com.example.semana3.demomasterclasssemana3.service.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,8 @@ public class ToolController {
     public Tool save (@RequestBody Tool t){
         return toolService.save(t);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Tool update(@RequestBody Tool t){return toolService.update(t);}
 }
