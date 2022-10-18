@@ -23,7 +23,7 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Category> getCategary (@PathVariable("id")int Id){
+    public Optional<Category> getCategory (@PathVariable("id")int Id){
         return categoryService.getCategory(Id);
     }
 
