@@ -45,6 +45,9 @@ public class CategoryService {
                 if (c.getDescription()!=null){
                     t.get().setDescription(c.getDescription());
                 }
+                if (c.getTools()!=null){
+                    t.get().setTools(c.getTools());
+                }
                 categoryRepository.save(t.get());
                 return t.get();
             }else {
