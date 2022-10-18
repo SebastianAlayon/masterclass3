@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Category")
+@CrossOrigin(origins = "*")
 public class CategoryController {
 
     @Autowired
@@ -18,6 +20,11 @@ public class CategoryController {
     @GetMapping("/all")
     public List<Category> getAll(){
         return categoryService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Category> getCategary (@PathVariable("id")int Id){
+        return categoryService.getCategory(Id);
     }
 
     @PostMapping("/save")
@@ -30,8 +37,8 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.CREATED)
     public Category update(@RequestBody Category c){return categoryService.update(c);}
 
-    @DeleteMapping("/(id)")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete (@PathVariable("id") int id){return categoryService.delete(id);}
+    public boolean delete (@PathVariable("id") int Id){return categoryService.delete(Id);}
 
 }

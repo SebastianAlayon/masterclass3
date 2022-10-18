@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Client")
+@CrossOrigin(origins = "*")
 public class ClientController {
 
     @Autowired
@@ -18,6 +20,11 @@ public class ClientController {
     @GetMapping("/all")
     public List<Client> getAll (){
         return clientService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Client> getClient (@PathVariable("id") int Id){
+        return clientService.getClient(Id);
     }
 
     @PostMapping("/save")
@@ -30,7 +37,7 @@ public class ClientController {
     @ResponseStatus(HttpStatus.CREATED)
     public Client update(@RequestBody Client c){return clientService.update(c);}
 
-    @DeleteMapping("/(id)")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete (@PathVariable("id") int id) { return clientService.delete(id);}
+    public boolean delete (@PathVariable("id") int Id) { return clientService.delete(Id);}
 }
